@@ -1,0 +1,17 @@
+<h1>My tasks</h1>
+
+<% @tasks.each do |task| %>
+  <div class="task-list">
+    <input type="checkbox" id=<% task.title %> name=<% task.title %> disabled="disabled" <%= 'checked' if task.completed == true %> >
+    <label for="<% task.title %>">
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to image_tag("trash.svg", :alt => "back", :class => "icon-small"), task_path(task),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+    </label>
+  </div>
+<% end %>
+
+<div class="footer">
+  <%= link_to image_tag("circle-add.svg", :alt => "back", :class => "icon") , new_task_path %><%= link_to "Add a new Task" , new_task_path %>
+</div>

@@ -1,0 +1,19 @@
+<h1>Create a new task</h1>
+
+<%= form_for(@task) do |t| %>
+  <div>
+    <%= t.label :title %>
+    <%= t.text_field :title %>
+  </div>
+
+  <div>
+    <%= t.label :details %>
+    <%= t.text_field :details %>
+  </div>
+
+  <%= t.submit class: 'btn' %>
+<% end %>
+
+<div class="footer">
+  <%= image_tag("rewind.svg", :alt => "back", :class => "icon") %> <%= link_to 'Back to List of tasks', tasks_path %>
+</div>

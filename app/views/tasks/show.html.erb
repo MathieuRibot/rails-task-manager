@@ -1,0 +1,12 @@
+<h1> <%= @task.title %></h1>
+<%= link_to 'Edit this task', edit_task_path(@task) %>
+<div class="display-task-details">
+  <p><%= @task.details %></p>
+</div>
+<div class="display-task-completed">
+  <input type="checkbox" id=<% @task.title %> name=<% @task.completed %> disabled="disabled" <%= 'checked' if @task.completed == true %> >
+  <label for="<% @task.completed %>"><%= @display_completed %></label>
+</div>
+<div class="footer">
+  <%= link_to image_tag("rewind.svg", :alt => "back", :class => "icon"), tasks_path %><%= link_to 'Back to List of tasks', tasks_path %>
+</div>
